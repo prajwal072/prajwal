@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-menu">
+                <li>About</li>
+                <li>Home</li>
+                <li>Login</li>
+                <li>Contact</li>
+                <li>Services</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!--Hey! This is the original version
+of Simple CSS Waves-->
+
+<div class="header">
+
+    <!--Content before waves-->
+    <div class="inner-header flex">
+    <!--Just the logo.. Don't mind this-->
+    <h1 class="main-heading">Welcome to the world of Geeks<br><span class="highlighted-text">Create & Innovate</span></h1>
+        <img src="img1.webp"/>
+    </div>
+    
+    <!--Waves Container-->
+    <div>
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+    <g class="parallax">
+    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+    <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+    </g>
+    </svg>
+    </div>
+    <!--Waves end-->
+    
+    </div>
+    <!--Header ends-->
+    
+    <!--Content starts-->
+    <div class="content flex">
+      <p>By. Vaibhav </p>
+    </div>
+    <!--Content ends-->
+
+
+        <section class="cards-section">
+            <div class="card">
+                <h2>Card Title 1</h2>
+                <p>Explore amazing content and exciting features on this platform.</p>
+                <button>Learn More</button>
+            </div>
+            <div class="card">
+                <h2>Card Title 2</h2>
+                <p>Discover opportunities and connect with like-minded individuals.</p>
+                <button>Get Started</button>
+            </div>
+            <div class="card">
+                <h2>Card Title 3</h2>
+                <p>Join us in building a better and brighter future together.</p>
+                <button>Join Now</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p class="footer-text">© 2025 Stylish Page. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

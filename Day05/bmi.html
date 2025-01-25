@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(120deg, #f6d365, #fda085);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #333;
+      }
+      .converter-container {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 350px;
+      }
+      .converter-container h1 {
+        margin-bottom: 20px;
+        color: #555;
+      }
+      label {
+        font-size: 16px;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 10px;
+      }
+      input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #fda085;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      button:hover {
+        background-color: #f6d365;
+      }
+      .result {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #333;
+        font-weight: bold;
+      }
+      .result img {
+        display: block;
+        margin: 10px auto;
+        width: 100px;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="converter-container">
+      <h1>BMI Calculator</h1>
+      <form id="converterForm">
+        <label for="weight">Enter Weight (kg):</label>
+        <input type="number" placeholder="Enter weight" id="weight" required />
+        <label for="height">Enter Height (cm):</label>
+        <input type="number" placeholder="Enter height" id="height" required />
+        <button type="submit">Calculate</button>
+      </form>
+      <div class="result" id="result">Result will be displayed here.</div>
+    </div>
+
+    <script>
+      const form = document.getElementById("converterForm");
+      const resultDiv = document.getElementById("result");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const weight = Number(document.getElementById("weight").value);
+        const heightInCM = Number(document.getElementById("height").value);
+        const heightInM = heightInCM / 100;
+
+        // Clear previous content
+        resultDiv.textContent = "";
+        resultDiv.innerHTML = "";
+
+        if (isNaN(weight) || weight <= 0 || isNaN(heightInCM) || heightInCM <= 0) {
+          resultDiv.textContent = "Please enter valid positive numbers for weight and height.";
+          return;
+        }
+
+        const bmi = (weight / (heightInM * heightInM)).toFixed(2);
+
+        let message = "";
+        let imgPath = "";
+
+        if (bmi < 18.5) {
+          message = `Your BMI is ${bmi}. You are underweight.`;
+          imgPath = "underweight.jpeg";
+        } else if (bmi >= 18.5 && bmi <= 24.9) {
+          message = `Your BMI is ${bmi}. You are normal weight.`;
+          imgPath = "normal.jpeg";
+        } else if (bmi >= 25 && bmi <= 29.9) {
+          message = `Your BMI is ${bmi}. You are overweight.`;
+          imgPath = "overweight.png";
+        } else {
+          message = `Your BMI is ${bmi}. You are obese.`;
+          imgPath = "obese.png";
+        }
+
+        // Add message
+        const messageDiv = document.createElement("div");
+        messageDiv.textContent = message;
+        resultDiv.appendChild(messageDiv);
+
+        // Add image
+        if (imgPath) {
+          const img = document.createElement("img");
+          img.src = imgPath;
+          img.alt = "BMI category image";
+          resultDiv.appendChild(img);
+        }
+      });
+    </script>
+  </body>
+</html>
